@@ -6,13 +6,13 @@ import Education from "./Component/Education/Education";
 import Experience from "./Component/Experience/Experience";
 import Contact from "./Component/Contact/Contact";
 import Footer from "./Component/Footer/Footer";
-import PointerEffect from "./Component/PointerEffect/PointerEffect";
+// import PointerEffect from "./Component/PointerEffect/PointerEffect";
 
 function App() {
   return (
     <div className="bg-black min-h-screen overflow-hidden relative">
 
-      <PointerEffect />
+      {/* <PointerEffect /> */}
 
       <div className="relative z-10">
         <Navbar />

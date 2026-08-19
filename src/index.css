@@ -15,8 +15,8 @@ html {
 
 body {
     margin: 0;
-
 }
+
 
 .scroll-section {
     opacity: 0;
@@ -37,7 +37,7 @@ body {
     z-index: 50;
 }
 
-.pointer-effect {
+/* .pointer-effect {
     position: fixed;
     top: 0;
     left: 0;
@@ -50,14 +50,14 @@ body {
             calc(var(--mouse-y) - 175px));
 
     background: radial-gradient(circle,
-            rgba(255, 255, 255, 0.08) 0%,
-            rgba(255, 255, 255, 0.03) 35%,
+            rgba(230, 226, 226, 0.25) 0%,
+            rgba(255, 255, 255, 0.98) 35%,
             transparent 70%);
 
     border-radius: 50%;
 
     transition: transform 0.08s linear;
-}
+} */
 
 @keyframes typing {
     from {
