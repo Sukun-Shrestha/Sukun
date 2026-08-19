@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: Arial, Helvetica, font-mono;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    margin: 0;
+
+}
+
+.scroll-section {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+}
+
+.pointer-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 350px;
+    pointer-events: none;
+    z-index: 0;
+
+    transform: translate(calc(var(--mouse-x) - 175px),
+            calc(var(--mouse-y) - 175px));
+
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.03) 35%,
+            transparent 70%);
+
+    border-radius: 50%;
+
+    transition: transform 0.08s linear;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.animate-typing {
+    width: fit-content;
+    animation:
+        typing 1s steps(18, end),
+        blink 0.7s step-end infinite;
+}
