@@ -73,7 +73,7 @@ const Navbar = () => {
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={handleLogoClick}
+                    // onClick={handleLogoClick}
                     title="Click to upload a new logo (JPG)"
                     className="relative group hover:opacity-80
                     transition-opacity duration-300 cursor-pointer"

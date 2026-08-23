@@ -96,7 +96,7 @@ const Home = () => {
             >
                 <button
                     type="button"
-                    onClick={handleAvatarClick}
+                    // onClick={handleAvatarClick}
                     title="Click to upload a new photo (JPG)"
                     className="cursor-pointer hover:opacity-80 transition-opacity duration-300"
                 >
