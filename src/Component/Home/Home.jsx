@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import avatarImg from "../../assets/sukun.png";
+import avatarImg from "../../assets/black.jpg";
 
 const Home = () => {
     const fullText =
-        "I am a passionate Frontend Developer who enjoys creating modern, responsive, and user-friendly websites. I work with technologies such as HTML, CSS, JavaScript, React, and Bootstrap to turn ideas and designs into interactive web experiences. I focus on writing clean code, creating attractive interfaces, and continuously improving my skills through new projects and challenges.";
+        "I am a passionate Frontend Developer who enjoys creating modern, responsive, and user-friendly websites. I work with technologies such as HTML, CSS, JavaScript, React, and Bootstrap to turn ideas and designs into interactive web experiences. I focus on writing clean and organized code, creating attractive interfaces, and making websites that work smoothly across different devices. I enjoy learning new technologies, exploring creative ideas, and improving my development skills through projects and challenges. My goal is to continuously grow as a developer and build meaningful, engaging, and high-quality web experiences for users.";
 
     const [typedText, setTypedText] = useState("");
+    const [avatarSrc, setAvatarSrc] = useState(avatarImg);
+    const fileInputRef = useRef(null);
 
     useEffect(() => {
         let i = 0;
@@ -18,14 +20,42 @@ const Home = () => {
         return () => clearInterval(timer);
     }, []);
 
+    // Clean up any object URL we created when it's replaced/unmounted
+    useEffect(() => {
+        return () => {
+            if (avatarSrc && avatarSrc.startsWith("blob:")) {
+                URL.revokeObjectURL(avatarSrc);
+            }
+        };
+    }, [avatarSrc]);
+
+    const handleAvatarClick = () => {
+        fileInputRef.current?.click();
+    };
+
+    const handleAvatarUpload = (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        if (!file.type.match(/^image\/jpe?g$/)) {
+            alert("Please upload a JPG image.");
+            e.target.value = "";
+            return;
+        }
+
+        const newUrl = URL.createObjectURL(file);
+        setAvatarSrc(newUrl);
+        e.target.value = "";
+    };
+
     return (
-        <div className="text-white flex flex-col md:flex-row w-full justify-between items-center md:items-start p-6 md:p-20 pb-32 md:pb-40 mt-20 md:mt-28 gap-10 md:gap-0">
+        <div className="text-white grid grid-cols-1 md:grid-cols-2 w-full items-center md:items-start px-6 md:px-20 pt-42 md:pt-55 pb-32 md:pb-40 gap-10 md:gap-16">
 
             <motion.div
                 initial={{ opacity: 0, x: -40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
-                className="w-full md:w-2/4 md:pt-10 text-center md:text-left"
+                className="w-full text-center md:text-left"
             >
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
@@ -62,12 +92,33 @@ const Home = () => {
                 initial={{ opacity: 0, x: 40, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                className="w-full md:w-auto flex justify-center"
+                className="w-full flex justify-center md:justify-end items-start"
             >
-                <img
-                    className="w-56 sm:w-72 md:w-[300px] lg:w-[693px] object-contain -mt-10 md:-mt-44 ml-29 md:ml-80"
-                    src={avatarImg}
-                    alt="Sukun Shrestha"
+                <button
+                    type="button"
+                    onClick={handleAvatarClick}
+                    title="Click to upload a new photo (JPG)"
+                    className="cursor-pointer hover:opacity-80 transition-opacity duration-300"
+                >
+                    <div
+                        className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72
+                        lg:w-80 lg:h-80 xl:w-[360px] xl:h-[360px]
+                        rounded-full overflow-hidden border-4 border-white/20"
+                    >
+                        <img
+                            className="w-full h-full object-cover object-center"
+                            src={avatarSrc}
+                            alt="Sukun Shrestha"
+                        />
+                    </div>
+                </button>
+
+                <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/jpeg,image/jpg,.jpg,.jpeg"
+                    onChange={handleAvatarUpload}
+                    className="hidden"
                 />
             </motion.div>
 

@@ -78,6 +78,6 @@ body {
 .animate-typing {
     width: fit-content;
     animation:
-        typing 1s steps(18, end),
+        typing, .3s steps(18, end),
         blink 0.7s step-end infinite;
 }
