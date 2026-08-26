@@ -44,20 +44,20 @@ const Navbar = () => {
         fileInputRef.current?.click();
     };
 
-    const handleLogoUpload = (e) => {
-        const file = e.target.files?.[0];
-        if (!file) return;
+    // const handleLogoUpload = (e) => {
+    //     const file = e.target.files?.[0];
+    //     if (!file) return;
 
-        if (!file.type.match(/^image\/jpe?g$/)) {
-            alert("Please upload a JPG image.");
-            e.target.value = "";
-            return;
-        }
+    //     if (!file.type.match(/^image\/jpe?g$/)) {
+    //         alert("Please upload a JPG image.");
+    //         e.target.value = "";
+    //         return;
+    //     }
 
-        const newUrl = URL.createObjectURL(file);
-        setLogoSrc(newUrl);
-        e.target.value = ""; // allow re-selecting the same file later
-    };
+    //     const newUrl = URL.createObjectURL(file);
+    //     setLogoSrc(newUrl);
+    //     e.target.value = ""; // allow re-selecting the same file later
+    // };
 
     return (
         <motion.nav
@@ -73,8 +73,8 @@ const Navbar = () => {
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    // onClick={handleLogoClick}
-                    title="Click to upload a new logo (JPG)"
+                    onClick={handleRefresh}
+                    // title="Click to upload a new logo (JPG)"
                     className="relative group hover:opacity-80
                     transition-opacity duration-300 cursor-pointer"
                 >
@@ -98,13 +98,13 @@ const Navbar = () => {
                     </div>
                 </motion.button>
 
-                <input
+                {/* <input
                     ref={fileInputRef}
                     type="file"
                     accept="image/jpeg,image/jpg,.jpg,.jpeg"
                     onChange={handleLogoUpload}
                     className="hidden"
-                />
+                /> */}
 
                 <button
                     onClick={handleRefresh}
