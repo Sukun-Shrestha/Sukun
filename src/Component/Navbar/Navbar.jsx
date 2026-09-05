@@ -22,8 +22,9 @@ const Navbar = () => {
         };
     }, [menu]);
 
-    const handleRefresh = () => {
-        window.location.reload();
+    const goHome = () => {
+        setMenu(false);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     const handleLinkClick = () => {
@@ -44,7 +45,7 @@ const Navbar = () => {
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={handleRefresh}
+                    onClick={goHome}
                     className="relative group hover:opacity-80
                     transition-opacity duration-300 cursor-pointer"
                 >
@@ -57,14 +58,14 @@ const Navbar = () => {
                         <img
                             src={logo}
                             alt="Sukun Shrestha"
-                            className="w-11 h-13 object-center"
+                            className=" object-center"
                         />
                     </div>
                 </motion.button>
 
                 <button
-                    onClick={handleRefresh}
-                    className="text-2xl font-bold tracking-wide hidden sm:inline
+                    onClick={goHome}
+                    className="text-lg sm:text-2xl font-bold tracking-wide inline
                     hover:opacity-80 transition-opacity duration-300 cursor-pointer"
                 >
                     Sukun Shrestha
