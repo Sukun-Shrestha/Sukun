@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { RiCloseLine, RiMenu2Line } from "@remixicon/react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "../../assets/sukun.jpg";
 
 const links = [
     { href: "#About", label: "About" },
@@ -12,8 +13,6 @@ const links = [
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
-    const [logoSrc, setLogoSrc] = useState(null); // null = show "SS" initials
-    const fileInputRef = useRef(null);
 
     useEffect(() => {
         document.body.style.overflow = menu ? "hidden" : "";
@@ -23,15 +22,6 @@ const Navbar = () => {
         };
     }, [menu]);
 
-    // Clean up any object URL we created when it's replaced/unmounted
-    useEffect(() => {
-        return () => {
-            if (logoSrc && logoSrc.startsWith("blob:")) {
-                URL.revokeObjectURL(logoSrc);
-            }
-        };
-    }, [logoSrc]);
-
     const handleRefresh = () => {
         window.location.reload();
     };
@@ -39,25 +29,6 @@ const Navbar = () => {
     const handleLinkClick = () => {
         setMenu(false);
     };
-
-    const handleLogoClick = () => {
-        fileInputRef.current?.click();
-    };
-
-    // const handleLogoUpload = (e) => {
-    //     const file = e.target.files?.[0];
-    //     if (!file) return;
-
-    //     if (!file.type.match(/^image\/jpe?g$/)) {
-    //         alert("Please upload a JPG image.");
-    //         e.target.value = "";
-    //         return;
-    //     }
-
-    //     const newUrl = URL.createObjectURL(file);
-    //     setLogoSrc(newUrl);
-    //     e.target.value = ""; // allow re-selecting the same file later
-    // };
 
     return (
         <motion.nav
@@ -74,7 +45,6 @@ const Navbar = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={handleRefresh}
-                    // title="Click to upload a new logo (JPG)"
                     className="relative group hover:opacity-80
                     transition-opacity duration-300 cursor-pointer"
                 >
@@ -84,27 +54,13 @@ const Navbar = () => {
                         flex items-center justify-center
                         bg-gradient-to-br from-gray-700 to-gray-900"
                     >
-                        {logoSrc ? (
-                            <img
-                                src={logoSrc}
-                                alt="Sukun Shrestha"
-                                className="w-[90px] h-full object-cover object-center scale-[1.6] translate-y-5"
-                            />
-                        ) : (
-                            <span className="text-white font-bold text-sm tracking-wide select-none">
-                                SS
-                            </span>
-                        )}
+                        <img
+                            src={logo}
+                            alt="Sukun Shrestha"
+                            className="w-11 h-13 object-center"
+                        />
                     </div>
                 </motion.button>
-
-                {/* <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/jpeg,image/jpg,.jpg,.jpeg"
-                    onChange={handleLogoUpload}
-                    className="hidden"
-                /> */}
 
                 <button
                     onClick={handleRefresh}
