@@ -93,24 +93,20 @@ const Home = () => {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                 className="w-full flex justify-center md:justify-end items-start order-1 md:order-2"
             >
-                <button
-                    type="button"
-                    // onClick={handleAvatarClick}
 
-                    className="cursor-pointer hover:opacity-80 transition-opacity duration-300"
+                <div
+                    className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72
+               lg:w-80 lg:h-80 xl:w-[360px] xl:h-[360px]
+               rounded-full overflow-hidden border-4 border-white/20
+               cursor-pointer hover:opacity-80 transition-opacity duration-300"
                 >
-                    <div
-                        className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72
-                            lg:w-80 lg:h-80 xl:w-[360px] xl:h-[360px]
-                            rounded-full overflow-hidden border-4 border-white/20"
-                    >
-                        <img
-                            className="w-full h-full object-cover object-center scale-125"
-                            src={avatarSrc}
-                            alt="Sukun Shrestha"
-                        />
-                    </div>
-                </button>
+                    <img
+                        className="w-full h-full object-cover object-center scale-125 translate-y-4"
+                        src={avatarSrc}
+                        alt="Sukun Shrestha"
+                    />
+                </div>
+
 
                 {/* <input
                     ref={fileInputRef}
