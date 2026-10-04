@@ -81,3 +81,149 @@ body {
         typing, .3s steps(18, end),
         blink 0.7s step-end infinite;
 }
+
+.projects-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+    font-family: system-ui, sans-serif;
+}
+
+.projects-section h2 {
+    font-size: 28px;
+    margin: 0;
+    color: #0f172a;
+}
+
+.projects-section h2 span {
+    color: #06b6d4;
+}
+
+.underline {
+    width: 70px;
+    height: 3px;
+    background: #06b6d4;
+    margin: 10px auto 16px;
+    border-radius: 2px;
+}
+
+.subtitle {
+    max-width: 440px;
+    margin: 0 auto 40px;
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    text-align: left;
+}
+
+.project-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 15px;
+    color: #0f172a;
+}
+
+.project-link {
+    color: #64748b;
+    display: inline-flex;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.project-link:hover {
+    color: #06b6d4;
+    transform: translate(2px, -2px);
+}
+
+.category-tag {
+    display: inline-block;
+    margin: 8px 0 14px;
+    padding: 2px 8px;
+    background: #cffafe;
+    color: #0891b2;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.description {
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0 0 14px;
+}
+
+.project-card h4 {
+    font-size: 11px;
+    margin: 0 0 8px;
+    color: #0f172a;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+}
+
+.features li {
+    font-size: 10.5px;
+    color: #64748b;
+    margin-bottom: 6px;
+    padding-left: 12px;
+    position: relative;
+}
+
+.features li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 4px;
+    height: 4px;
+    background: #06b6d4;
+    border-radius: 50%;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tech-tag {
+    font-size: 9.5px;
+    padding: 3px 9px;
+    border: 1px solid #a5f3fc;
+    color: #06b6d4;
+    border-radius: 12px;
+}
+
+@media (max-width: 700px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}

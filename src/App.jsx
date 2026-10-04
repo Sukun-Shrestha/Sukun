@@ -6,6 +6,7 @@ import Education from "./Component/Education/Education";
 import Experience from "./Component/Experience/Experience";
 import Contact from "./Component/Contact/Contact";
 import Footer from "./Component/Footer/Footer";
+import Projects from "./Component/Project/project";
 // import PointerEffect from "./Component/PointerEffect/PointerEffect";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <About />
           <Experience />
           <Skill />
+          <Projects />
           <Education />
           <Contact />
         </main>
