@@ -12,14 +12,16 @@ import {
 } from "react-icons/fa";
 
 import { VscVscode } from "react-icons/vsc";
-import { SiGitlab, SiVercel } from "react-icons/si";
+import { SiGitlab, SiVercel, SiReactquery, SiRedux, SiTailwindcss, SiTypescript } from "react-icons/si";
+import reduxSaga from "../../assets/redux-saga.png";
 
 const skills = [
     { name: "HTML", icon: <FaHtml5 size={40} className="text-orange-500" /> },
     { name: "CSS", icon: <FaCss3Alt size={40} className="text-blue-500" /> },
     { name: "JavaScript", icon: <FaJs size={40} className="text-yellow-400" /> },
     { name: "React JS", icon: <FaReact size={40} className="text-cyan-400" /> },
-    { name: "Bootstrap", icon: <FaBootstrap size={40} className="text-purple-500" /> },
+    { name: "TypeScript", icon: <SiTypescript size={40} className="text-[#3178C6]" /> },
+
 ];
 
 const technologies = [
@@ -27,7 +29,16 @@ const technologies = [
     { name: "GitHub", icon: <FaGithub size={40} className="text-white" /> },
     { name: "Git", icon: <FaGitAlt size={40} className="text-orange-600" /> },
     { name: "GitLab", icon: <SiGitlab size={40} className="text-orange-500" /> },
+    { name: "Bootstrap", icon: <FaBootstrap size={40} className="text-purple-500" /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss size={40} className="text-[#06B6D4]" /> },
     { name: "Vercel", icon: <SiVercel size={40} className="text-white" /> },
+    { name: "TanStack", icon: <SiReactquery size={40} className="text-red-400" /> },
+    { name: "React Redux", icon: <SiRedux size={40} className="text-purple-400" /> },
+
+    {
+        name: "Redux Saga",
+        icon: <img src={reduxSaga} alt="Redux Saga" className="w-10 h-10 object-contain" />,
+    },
 ];
 
 const gridVariants = {
