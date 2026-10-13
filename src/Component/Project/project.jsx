@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
-// TODO: replace the "#" links with your real URLs.
 const projects = [
     {
         title: "Skyline - Live Weather App",
@@ -15,7 +14,6 @@ const projects = [
             "Current weather conditions at a glance",
             "Responsive layout for mobile and desktop",
         ],
-        // Edit to match what you actually used
         technologies: ["React", "JavaScript", "CSS", "Weather API", "Vercel"],
         link: "https://skyline-vert.vercel.app/",
         linkType: "live",
@@ -31,17 +29,49 @@ const projects = [
             "Roadmap summary showing Planned, In Progress and Live items",
             "Add new feedback and view comments on each suggestion",
         ],
-        technologies: ["React", "Redux", "React Router", "Tailwind CSS", "Vercel"],
+        technologies: [
+            "React",
+            "Redux",
+            "React Router",
+            "Tailwind CSS",
+            "Vercel",
+        ],
         link: "https://feedback-two-zeta.vercel.app/",
+        linkType: "live",
+    },
+    {
+        title: "Safal Bakery - Inventory Management System",
+        category: "Frontend / Inventory Management",
+        description:
+            "Developed a bakery inventory management dashboard to organize products, monitor stock levels, manage orders and suppliers, and review inventory reports. Designed to simplify inventory tracking through a clean, responsive interface.",
+        features: [
+            "Dashboard for an overview of bakery inventory",
+            "Add, manage, and search bakery products",
+            "Monitor stock levels and identify low-stock items",
+            "Manage orders and supplier information",
+            "View inventory reports and stock summaries",
+            "Responsive interface for desktop and mobile devices",
+        ],
+        technologies: [
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "Vite",
+            "Lucide React",
+            "Vercel",
+        ],
+        link: "https://ims-ten-dusky.vercel.app/",
         linkType: "live",
     },
 ];
 
 const Projects = () => {
     return (
-        <section id="Projects" className="text-white w-full min-h-screen px-6 py-16 md:px-12">
+        <section
+            id="Projects"
+            className="text-white w-full min-h-screen px-6 py-16 md:px-12"
+        >
             <div className="max-w-5xl mx-auto">
-
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -55,15 +85,19 @@ const Projects = () => {
                 <div className="w-20 h-1 bg-gray-500 mx-auto mb-6 rounded-full"></div>
 
                 <p className="text-gray-400 text-sm md:text-base text-center max-w-xl mx-auto mb-12">
-                    A showcase of my recent applications, demonstrating expertise in mobile
-                    and frontend development, state management, and user experience design.
+                    A showcase of my recent applications, demonstrating
+                    expertise in frontend development, state management,
+                    inventory management, and user experience design.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.title}
-                            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                            initial={{
+                                opacity: 0,
+                                x: index % 2 === 0 ? -50 : 50,
+                            }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -101,6 +135,7 @@ const Projects = () => {
                             <h4 className="text-sm font-semibold text-gray-300 mt-6 mb-3">
                                 Key Features:
                             </h4>
+
                             <ul className="space-y-2">
                                 {project.features.map((feature) => (
                                     <li
@@ -116,6 +151,7 @@ const Projects = () => {
                             <h4 className="text-sm font-semibold text-gray-300 mt-6 mb-3">
                                 Technologies:
                             </h4>
+
                             <div className="flex flex-wrap gap-2 mt-auto">
                                 {project.technologies.map((tech) => (
                                     <span
@@ -129,7 +165,6 @@ const Projects = () => {
                         </motion.div>
                     ))}
                 </div>
-
             </div>
         </section>
     );
