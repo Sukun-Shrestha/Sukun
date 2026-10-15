@@ -18,7 +18,7 @@ const cards = [
 const socials = [
     { icon: FaGithub, href: "https://github.com/Sukun-Shrestha" },
     { icon: FaWhatsapp, href: "https://wa.me/9847383267" },
-    { icon: FaInstagram, href: "https://www.instagram.com/sukun_shrestha/?hl=en" },
+    { icon: FaInstagram, href: "https://www.instagram.com/sheri_sukun/?hl=en" },
 ];
 
 const Contact = () => {
