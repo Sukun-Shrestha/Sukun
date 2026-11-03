@@ -63,6 +63,31 @@ const projects = [
         link: "https://ims-ten-dusky.vercel.app/",
         linkType: "live",
     },
+    {
+        title: "Safal Bakery - Inventory Management System",
+        category: "Frontend / Inventory Management",
+        description:
+            "Developed a bakery inventory management dashboard to organize products, monitor stock levels, manage orders and suppliers, and review inventory reports. Designed to simplify inventory tracking through a clean, responsive interface.",
+        features: [
+            "Dashboard for an overview of bakery inventory",
+            "Add, manage, and search bakery products",
+            "Monitor stock levels and identify low-stock items",
+            "Manage orders and supplier information",
+            "View inventory reports and stock summaries",
+            "Responsive interface for desktop and mobile devices",
+        ],
+        technologies: [
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "Vite",
+            "Lucide React",
+            "Vercel",
+        ],
+        link: "https://ims-ten-dusky.vercel.app/",
+        linkType: "live",
+    },
+
 ];
 
 const Projects = () => {
